@@ -82,13 +82,32 @@ var Dashboard = React.createClass({
           country: countryName,
         }
       );
-      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&appid=YOUR_API_KEY')
+      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&units=imperial&appid=YOUR_API_KEY')
       .then(function(data){
-        console.log(coord.lat);
-        console.log(coord.lon);
-        console.log(data);
+        console.log(coord.lat);console.log(coord.lon);
+        console.log(data.list[6]);
         this.setState(
           {
+            day1: data.list[5].dt_txt,
+            day1Temp: data.list[5].main.temp,
+            day1TempMax: data.list[5].main.temp_max,
+            day1TempMin: data.list[5].main.temp_min,
+            day2: data.list[13].dt_txt,
+            day2Temp: data.list[13].main.temp,
+            day2TempMax: data.list[13].main.temp_max,
+            day2TempMin: data.list[13].main.temp_min,
+            day3: data.list[21].dt_txt,
+            day3Temp: data.list[21].main.temp,
+            day3TempMax: data.list[21].main.temp_max,
+            day3TempMin: data.list[21].main.temp_min,
+            day4: data.list[29].dt_txt,
+            day4Temp: data.list[29].main.temp,
+            day4TempMax: data.list[29].main.temp_max,
+            day4TempMin: data.list[29].main.temp_min,
+            day5: data.list[37].dt_txt,
+            day5Temp: data.list[37].main.temp,
+            day5TempMax: data.list[37].main.temp_max,
+            day5TempMin: data.list[37].main.temp_min,
           }
         );
       }.bind(this));
@@ -109,7 +128,31 @@ var Dashboard = React.createClass({
         <NavBar />
         <CurrentWeather temp={s.temp} tempC={s.tempC} min={s.min} max={s.max} name={s.name} country={s.country} icon={s.icon} description={s.description}/>
         {
-          // <FutureWeather temp={s.temp} min={s.min} max={s.max} name={s.name} country={s.country} icon={s.icon} description={s.description}/>
+          <FutureWeather
+            day1={s.day1}
+            day1Temp={s.day1Temp}
+            day1Min={s.day1TempMin}
+            day1Max={s.day1TempMax}
+            day2={s.day2}
+            day2Temp={s.day2Temp}
+            day2Min={s.day2TempMin}
+            day2Max={s.day2TempMax}
+            day3={s.day3}
+            day3Temp={s.day3Temp}
+            day3Min={s.day3TempMin}
+            day3Max={s.day3TempMax}
+            day4={s.day4}
+            day4Temp={s.day4Temp}
+            day4Min={s.day4TempMin}
+            day4Max={s.day4TempMax}
+            day5={s.day5}
+            day5Temp={s.day5Temp}
+            day5Min={s.day5TempMin}
+            day5Max={s.day5TempMax}
+            name={s.name}
+            country={s.country}
+            icon={s.icon}
+            description={s.description}/>
         }
         <SearchBox onNewSearch={this.handleSearch} />
       </div>
