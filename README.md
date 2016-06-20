@@ -34,4 +34,4 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
   $ http-server
   ```
 
-Go to http://localhost:8080 or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
+Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
