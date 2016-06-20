@@ -12,7 +12,7 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
 
 - Quickstart for Mac OS X only
 
-  - Sign up for the <a href="http://openweathermap.org/">Open Weather Map</a> API so you can enter your API key into the url on line 60 and line 85 in <code>src/components/Dashboard.jsx</code>
+  - Sign up for the <a href="http://openweathermap.org/">Open Weather Map</a> API so you can enter your API key into the url on line 60 and on line 85 in <code>src/components/Dashboard.jsx</code>
 
   - Clone this repository and run the setup script:
   ```bash
