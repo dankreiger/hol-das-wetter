@@ -1,0 +1,28 @@
+{
+  "name": "hol_das_wetter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify src/main.jsx -t [babelify --presets [ react ] ] -o public/js/main.js -v"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dankreiger/hol-das-wetter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dankreiger/hol-das-wetter/issues"
+  },
+  "homepage": "https://github.com/dankreiger/hol-das-wetter",
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "country-data": "0.0.24",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "watchify": "^3.7.0",
+    "whatwg-fetch": "^1.0.0"
+  }
+}
