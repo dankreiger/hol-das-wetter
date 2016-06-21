@@ -15,8 +15,10 @@ EOF
 cat > .gitignore << EOF
 .gitignore
 .DS_Store
+.env
 node_modules
 *.log
+src/owmApiKey.js
 public/js/main.js
 EOF
 FILL_IN=$(printf "\n\n \xF0\x9F\x90\xB6 ${GREEN}Fill in app info (or just press enter for each line):${NC}")

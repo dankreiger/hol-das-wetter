@@ -12,8 +12,6 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
 
 - Quickstart for Mac OS X only
 
-  - Sign up for the <a href="http://openweathermap.org/">Open Weather Map</a> API so you can enter your API key into the url on line 60 and on line 85 in <code>src/components/Dashboard.jsx</code>
-
   - Clone this repository and run the setup script:
   ```bash
   $ git clone https://github.com/dankreiger/hol-das-wetter.git
@@ -22,6 +20,13 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
   $ chmod +x ./remove_defaults.sh
   $ ./auto_setup.sh
   ```
+
+  - Sign up for the <a href="http://openweathermap.org/api">Open Weather Map API</a> and enter your API key in <code>src/owmApiKey.js</code>
+  ```javascript
+  //src/owmApiKey.js
+  module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
+  ```
+    - replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key (make sure to leave it as a string)    
 
   - After making updates, shut down and restart the npm script:
   ```bash
