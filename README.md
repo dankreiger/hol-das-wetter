@@ -23,7 +23,7 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
 
   - Sign up for the <a href="http://openweathermap.org/api">Open Weather Map API</a> and enter your API key in <code>src/owmApiKey.js</code>
   ```javascript
-  //src/owmApiKey.js
+  // src/owmApiKey.js
   module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
   ```
     - replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key (make sure to leave it as a string)    
