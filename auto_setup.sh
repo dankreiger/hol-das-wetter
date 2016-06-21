@@ -7,6 +7,10 @@ RDEF=$(printf "\n\n \xF0\x9F\x90\xB6 Removing node files${NC}")
 echo $RDEF
 ./remove_defaults.sh
 
+cat > ./src/owmApiKey.js << EOF
+// Please visit http://openweathermap.org/api and sign up for an API KEY
+module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
+EOF
 
 cat > .gitignore << EOF
 .gitignore
@@ -19,7 +23,7 @@ FILL_IN=$(printf "\n\n \xF0\x9F\x90\xB6 ${GREEN}Fill in app info (or just press 
 echo $FILL_IN
 npm init
 npmglobals=('browserify' 'json' 'http-server')
-npmmodules=('react' 'react-dom' 'babelify' 'watchify' 'babel-preset-react' 'whatwg-fetch' 'country-data')
+npmmodules=('react' 'react-dom' 'babelify' 'watchify' 'babel-preset-react' 'whatwg-fetch' 'country-data' 'classnames')
 for i in "${npmglobals[@]}";do npm install -g $i; done
 for j in "${npmmodules[@]}";do npm install --save $j; done
 
