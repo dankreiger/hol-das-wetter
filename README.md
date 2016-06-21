@@ -26,7 +26,7 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
   // src/owmApiKey.js
   module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
   ```
-    - replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key (make sure to leave it as a string)    
+      - replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key (make sure to leave it as a string)    
 
   - After making updates, shut down and restart the npm script:
   ```bash
