@@ -4,9 +4,18 @@ var PropTypes = React.PropTypes;
 var CurrentWeather = React.createClass({
   render: function() {
     var p = this.props;
-    var inverseStyle = {
+    var cardBlockStyle = {
+      backgroundImage: 'url('+p.backgroundPhoto+')',
+      color: '#333',
+      padding: 0
+    };
+    var overlayStyle = {
+      backgroundColor: 'rgba(236,238,239,0.4)',
+      padding: '1.25rem'
+    };
+    var cardContainerStyle = {
       backgroundColor: '#333',
-      borderColor: '#333'
+      border: 'none'
     };
     var weatherIconStyle = {
       color: 'rgba(255,255,255,.65)'
@@ -17,41 +26,44 @@ var CurrentWeather = React.createClass({
 
     return (
       <div>
-        <div className="card card-inverse text-xs-center" style={inverseStyle}>
-          <div className="card-block">
-            <div className="row">
-              <div className="col-xs-12">
-                <h5 className="card-title" >{p.name}, {p.country}</h5>
+        <div className="card text-xs-center" style={cardContainerStyle}>
+          <div className="card-block" style={cardBlockStyle}>
+            <div style={overlayStyle}>
+              <div className="row">
+                <div className="col-xs-12">
+                  <h5 className="card-title" >{p.name}, {p.country}</h5>
+                </div>
               </div>
-            </div>
-            <div className="row" style={tempStyle}>
-              <div className="col-xs-12">
-                <h3 className="card-text">{p.currentTemp} °</h3>
+              <div className="row" style={tempStyle}>
+                <div className="col-xs-12">
+                  <h3 className="card-text">{p.currentTemp} °</h3>
+                </div>
               </div>
-            </div>
-            <div className="row" style={tempStyle}>
-              <div className="col-xs-12">
-                <p className="card-text">
-                  <i className={p.icon} style={weatherIconStyle}></i> {p.description}
-                </p>
+              <div className="row" style={tempStyle}>
+                <div className="col-xs-12">
+                  <p className="card-text">
+                    <i className={p.icon}></i> {p.description}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="row" style={tempStyle}>
-              <div className="col-xs-12">
-                <p className="card-text">
-                   {p.currentMin} °/ {p.currentMax} °
-                </p>
-                <p className="card-text">{p.dt}</p>
+              <div className="row" style={tempStyle}>
+                <div className="col-xs-12">
+                  <p className="card-text">
+                     {p.currentMin} °/ {p.currentMax} °
+                  </p>
+                  <p className="card-text">{p.dt}</p>
+                </div>
               </div>
-            </div>
-            <div className="row" style={tempStyle}>
-              <div className="col-xs-12">
-                <div className="btn-group">
-                  <a className={p.metricClass} onClick={p.metricClick}>C</a>
-                  <a className={p.imperialClass} onClick={p.imperialClick}>F</a>
+              <div className="row" style={tempStyle}>
+                <div className="col-xs-12">
+                  <div className="btn-group">
+                    <a className={p.metricClass} onClick={p.metricClick}>C</a>
+                    <a className={p.imperialClass} onClick={p.imperialClick}>F</a>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
