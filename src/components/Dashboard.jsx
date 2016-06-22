@@ -1,8 +1,10 @@
 var React = require('react');
 var owmApiKey = require('../owmApiKey');
-console.log(owmApiKey);
+var helperFunctions = require('../helperFunctions');
+var hf = new helperFunctions();
 var CityDataContainer = require('./CityDataContainer.jsx');
 var NavBar = require('./NavBar.jsx');
+var Map = require('./Map.jsx');
 var CurrentWeather = require('./CurrentWeather.jsx');
 var FutureWeather = require('./FutureWeather.jsx');
 var countries = require('country-data').countries;
@@ -11,8 +13,7 @@ var HTTP = require('../services/httpservice');
 
 // Please visit http://openweathermap.org/api and sign up for an API KEY
 // Place your API key in ownApiKey.js
-
-var YOUR_OWM_API_KEY = owmApiKey;
+var OWM_API_KEY = owmApiKey;
 
 var Dashboard = React.createClass({
   getInitialState: function() {
@@ -30,64 +31,9 @@ var Dashboard = React.createClass({
   metricClick: function() {
     this.setState({metric: true});
   },
-  formattedDate: function(timestamp){
-    var pubDate = new Date();
-    pubDate.setTime(timestamp * 1000);
-    pubDate = pubDate.toUTCString();
-    pubDate+=pubDate;
-    pubDate=pubDate.split(' ').slice(0, 4).join(' ');
-    return(pubDate);
-  },
-  evalIcon: function(iconText){
-    var icon = "wi ";
-    if(iconText == "01d"){
-      icon += "wi-day-sunny";
-    } else if(iconText == "02d"){
-      icon += "wi-day-cloudy";
-    } else if(iconText == "03d"){
-      icon += "wi-cloud";
-    } else if(iconText == "04d"){
-      icon += "wi-cloudy";
-    } else if(iconText == "09d"){
-      icon += "wi-rain";
-    } else if(iconText == "10d"){
-      icon += "wi-day-rain";
-    } else if(iconText == "11d"){
-      icon += "wi-thunderstorm";
-    } else if(iconText == "13d"){
-      icon += "wi-snow";
-    } else if(iconText == "50d"){
-      icon += "wi-windy";
-    } else if(iconText == "01n"){
-      icon += "wi-night-clear";
-    } else if(iconText == "02n"){
-      icon += "wi-night-alt-cloudy";
-    } else if(iconText == "03n"){
-      icon += "wi-cloud";
-    } else if(iconText == "04n"){
-      icon += "wi-cloudy";
-    } else if(iconText == "09n"){
-      icon += "wi-rain";
-    } else if(iconText == "10n"){
-      icon += "wi-night-alt-rain";
-    } else if(iconText == "11n"){
-      icon += "wi-thunderstorm";
-    } else if(iconText == "13n"){
-      icon += "wi-snow";
-    } else if(iconText == "50n"){
-      icon += "wi-windy";
-    }
-    return (icon);
-  },
-  toTitleCase: function(str) {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-  },
-  toCelsius: function(tempF) {
-    return(Math.round((tempF - 32) * (5/9)));
-  },
   cityScrape: function(search) {
     if(!search){search='berlin';}
-    HTTP.get('/data/2.5/weather?q='+ search + '&units=imperial&appid=' + YOUR_OWM_API_KEY)
+    HTTP.get('/data/2.5/weather?q='+ search + '&units=imperial&appid=' + OWM_API_KEY)
     .then(function(data){
       var main = data.main;
       var coord = data.coord;
@@ -102,70 +48,63 @@ var Dashboard = React.createClass({
         {
           lat: coord.lat,
           lon: coord.lon,
+          minLat: coord.lat - 0.12,
+          minLon: coord.lon - 0.12,
+          maxLat: coord.lat + 0.12,
+          maxLon: coord.lon + 0.12,
           temp: Math.round(main.temp),
-          tempC: this.toCelsius(main.temp),
+          tempC: hf.toCelsius(main.temp),
           min: Math.round(main.temp_min),
-          minC: this.toCelsius(main.temp_min),
+          minC: hf.toCelsius(main.temp_min),
           max: Math.round(main.temp_max),
-          maxC: this.toCelsius(main.temp_max),
+          maxC: hf.toCelsius(main.temp_max),
           name: data.name,
-          icon: this.evalIcon(data.weather[0].icon),
-          description: this.toTitleCase(data.weather[0].description),
+          icon: hf.evalIcon(data.weather[0].icon),
+          description: hf.toTitleCase(data.weather[0].description),
           country: countryName,
-          dt: Date(data.dt)
+          dt: hf.formattedDate(data.dt)
         }
       );
-      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&units=imperial&appid=' + YOUR_OWM_API_KEY)
+      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&units=imperial&appid=' + OWM_API_KEY)
       .then(function(data){
-        console.log(coord.lat);console.log(coord.lon);console.log(data);
         this.setState(
           {
-            day1: this.formattedDate(data.list[7].dt),
+            day1: hf.formattedDate(data.list[7].dt),
             day1Temp: Math.round(data.list[7].main.temp),
-            day1TempC: this.toCelsius(data.list[7].main.temp),
+            day1TempC: hf.toCelsius(data.list[7].main.temp),
             day1TempMax: data.list[7].main.temp_max,
             day1TempMin: data.list[7].main.temp_min,
-            day1Description: this.toTitleCase(data.list[7].weather[0].description),
-            day1Icon: this.evalIcon(data.list[7].weather[0].icon),
-            day2: this.formattedDate(data.list[15].dt),
+            day1Description: hf.toTitleCase(data.list[7].weather[0].description),
+            day1Icon: hf.evalIcon(data.list[7].weather[0].icon),
+            day2: hf.formattedDate(data.list[15].dt),
             day2Temp: Math.round(data.list[15].main.temp),
-            day2TempC: this.toCelsius(data.list[15].main.temp),
+            day2TempC: hf.toCelsius(data.list[15].main.temp),
             day2TempMax: data.list[15].main.temp_max,
             day2TempMin: data.list[15].main.temp_min,
-            day2Description: this.toTitleCase(data.list[15].weather[0].description),
-            day2Icon: this.evalIcon(data.list[15].weather[0].icon),
-            day3: this.formattedDate(data.list[23].dt),
+            day2Description: hf.toTitleCase(data.list[15].weather[0].description),
+            day2Icon: hf.evalIcon(data.list[15].weather[0].icon),
+            day3: hf.formattedDate(data.list[23].dt),
             day3Temp: Math.round(data.list[23].main.temp),
-            day3TempC: this.toCelsius(data.list[23].main.temp),
+            day3TempC: hf.toCelsius(data.list[23].main.temp),
             day3TempMax: data.list[23].main.temp_max,
             day3TempMin: data.list[23].main.temp_min,
-            day3Description: this.toTitleCase(data.list[23].weather[0].description),
-            day3Icon: this.evalIcon(data.list[23].weather[0].icon),
-            day4: this.formattedDate(data.list[31].dt),
+            day3Description: hf.toTitleCase(data.list[23].weather[0].description),
+            day3Icon: hf.evalIcon(data.list[23].weather[0].icon),
+            day4: hf.formattedDate(data.list[31].dt),
             day4Temp: Math.round(data.list[31].main.temp),
-            day4TempC: this.toCelsius(data.list[31].main.temp),
+            day4TempC: hf.toCelsius(data.list[31].main.temp),
             day4TempMax: data.list[31].main.temp_max,
             day4TempMin: data.list[31].main.temp_min,
-            day4Description: this.toTitleCase(data.list[31].weather[0].description),
-            day4Icon: this.evalIcon(data.list[31].weather[0].icon),
-            day5: this.formattedDate(data.list[39].dt),
-            day5Temp: Math.round(data.list[39].main.temp),
-            day5TempC: this.toCelsius(data.list[39].main.temp),
-            day5TempMax: data.list[39].main.temp_max,
-            day5TempMin: data.list[39].main.temp_min,
-            day5Description: this.toTitleCase(data.list[39].weather[0].description),
-            day5Icon: this.evalIcon(data.list[39].weather[0].icon)
+            day4Description: hf.toTitleCase(data.list[31].weather[0].description),
+            day4Icon: hf.evalIcon(data.list[31].weather[0].icon)
           }
         );
       }.bind(this));
     }.bind(this));
-
   },
-
   componentWillMount: function () {
     this.cityScrape();
   },
-
   handleSearch: function(search){
     this.cityScrape(search);
   },
@@ -183,12 +122,13 @@ var Dashboard = React.createClass({
     var day5Temp = (s.metric ? s.day5TempC : s.day5Temp);
     var imperialClass = classNames('btn btn-xs btn-info-outline', this.state.metric ? '' : 'active');
     var metricClass = classNames('btn btn-xs btn-info-outline', this.state.metric ? 'active' : '');
-
+    var mapUrl = "//www.openstreetmap.org/export/embed.html?bbox="+s.minLon+"%2C"+s.minLat+"%2C"+s.maxLon+"%2C"+s.maxLat+"&amp;layer=mapnik"
     return (
       <div>
+
         <NavBar onNewSearch={this.handleSearch} />
         <div className="row text-center">
-          <div className="col-xs-12">
+          <div className="col-xs-6">
             <CurrentWeather
               currentTemp={currentTemp}
               currentTempUnit={currentTempUnit}
@@ -205,6 +145,9 @@ var Dashboard = React.createClass({
               imperialClass={imperialClass}
               metricClass={metricClass}
             />
+          </div>
+          <div className="col-xs-6">
+            <Map mapUrl={mapUrl} />
           </div>
         </div>
         <FutureWeather
@@ -232,14 +175,7 @@ var Dashboard = React.createClass({
           day4Max={s.day4TempMax}
           day4Description={s.day4Description}
           day4Icon={s.day4Icon}
-          day5={s.day5}
-          day5Temp={day5Temp}
-          day5Min={s.day5TempMin}
-          day5Max={s.day5TempMax}
-          day5Description={s.day5Description}
-          day5Icon={s.day5Icon}
         />
-
       </div>
         );
   }

@@ -36,13 +36,6 @@ var FutureWeather = React.createClass({
             <p className="card-text text-xs-center"><i className={p.day4Icon}></i> {p.day4Description}</p>
           </div>
         </div>
-        <div className="card">
-          <div className="card-block">
-            <h6 className="card-title text-xs-center">{p.day5}</h6>
-            <p className="card-text text-xs-center">{p.day5Temp} °</p>
-            <p className="card-text text-xs-center"><i className={p.day5Icon}></i> {p.day5Description}</p>
-          </div>
-        </div>
       </div>
     );
   }
