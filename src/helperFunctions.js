@@ -29,7 +29,7 @@ function helperFunctions() {
     else if(iconText == "11n"){icon += "wi-thunderstorm";backgroundPhoto += "images/thunderstormNight.jpg"}
     else if(iconText == "13n"){icon += "wi-snow";backgroundPhoto += "images/snowNight.jpg"}
     else if(iconText == "50n"){icon += "wi-windy";backgroundPhoto += "images/windyNight.jpg"}
-    return (pup ={icon: icon, backgroundPhoto: backgroundPhoto});
+    return ({icon: icon, backgroundPhoto: backgroundPhoto});
   }
 
   this.toTitleCase = function(str) {
