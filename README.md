@@ -1,6 +1,6 @@
 ### Hol das Wetter!
 
-<a href="https://facebook.github.io/react/"><img src="https://assets.toptal.io/uploads/blog/category/logo/291/react.png" /> </a><a href="http://www.openweathermap.org/api"><img  src="https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg" /> </a>
+<a href="https://facebook.github.io/react/"><img src="http://javascriptismagic.github.io/aui/logos/react.png" /> </a><a href="http://www.openweathermap.org/api"><img  src="https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg" /> </a>
 <a href="https://github.com/github/fetch"><img  src="https://38.media.tumblr.com/avatar_42a712c20cf7_128.png" /></a>
 
 Instant shell script setup for a React Weather App API using <a href="https://github.com/github/fetch">Fetch</a> and <a href="http://openweathermap.org/">Open Weather Map</a>.
