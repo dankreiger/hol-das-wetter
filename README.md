@@ -1,5 +1,7 @@
 ### Hol das Wetter!
 
+<a href="https://facebook.github.io/react/"><img style="width:100px;" src="https://cdn.auth0.com/blog/react-js/react.png" /> </a><a href="openweathermap.org/api"><img style="width:100px;" src="http://landrina.ru/wp-content/uploads/2014/04/Screen-Shot-2014-04-12-at-21.53.08-341x300.png" /> </a>
+<a href="https://github.com/github/fetch"><img style="width:100px;height:87px;" src="http://www.valorebooks.com/campus-life/wp-content/uploads/Golden-puppy.jpg" /></a>
 
 Instant shell script setup for a React Weather App API using <a href="https://github.com/github/fetch">Fetch</a> and <a href="http://openweathermap.org/">Open Weather Map</a>.
 
@@ -26,7 +28,7 @@ Instant shell script setup for a React Weather App API using <a href="https://gi
   // src/owmApiKey.js
   // replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key
   // make sure to leave it as a string
-  
+
   module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
   ```   
 
