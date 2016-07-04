@@ -19,7 +19,7 @@ var Dashboard = React.createClass({
   getInitialState: function() {
     return {
       cityData: [],
-      metric: false
+      metric: true
     };
   },
   handleClick: function() {
@@ -33,7 +33,7 @@ var Dashboard = React.createClass({
   },
   cityScrape: function(search) {
     if(!search){search='berlin';}
-    HTTP.get('/data/2.5/weather?q='+ search + '&units=imperial&appid=' + OWM_API_KEY)
+    HTTP.get('/data/2.5/weather?q='+ search + '&units=metric&appid=' + OWM_API_KEY + '&lang=')
     .then(function(data){
       var main = data.main;
       var coord = data.coord;
@@ -53,11 +53,8 @@ var Dashboard = React.createClass({
           maxLat: coord.lat + 0.12,
           maxLon: coord.lon + 0.12,
           temp: Math.round(main.temp),
-          tempC: hf.toCelsius(main.temp),
           min: Math.round(main.temp_min),
-          minC: hf.toCelsius(main.temp_min),
           max: Math.round(main.temp_max),
-          maxC: hf.toCelsius(main.temp_max),
           name: data.name,
           icon: hf.evalIcon(data.weather[0].icon).icon,
           backgroundPhoto: hf.evalIcon(data.weather[0].icon).backgroundPhoto,
@@ -67,34 +64,30 @@ var Dashboard = React.createClass({
         }
       );
       console.log(this.state);
-      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&units=imperial&appid=' + OWM_API_KEY)
+      HTTP.get('/data/2.5/forecast?lat='+coord.lat+'&lon='+coord.lon+'&units=metric&appid=' + OWM_API_KEY + '&lang=')
       .then(function(data){
         this.setState(
           {
             day1: hf.formattedDate(data.list[7].dt),
             day1Temp: Math.round(data.list[7].main.temp),
-            day1TempC: hf.toCelsius(data.list[7].main.temp),
             day1TempMax: data.list[7].main.temp_max,
             day1TempMin: data.list[7].main.temp_min,
             day1Description: hf.toTitleCase(data.list[7].weather[0].description),
             day1Icon: hf.evalIcon(data.list[7].weather[0].icon).icon,
             day2: hf.formattedDate(data.list[15].dt),
             day2Temp: Math.round(data.list[15].main.temp),
-            day2TempC: hf.toCelsius(data.list[15].main.temp),
             day2TempMax: data.list[15].main.temp_max,
             day2TempMin: data.list[15].main.temp_min,
             day2Description: hf.toTitleCase(data.list[15].weather[0].description),
             day2Icon: hf.evalIcon(data.list[15].weather[0].icon).icon,
             day3: hf.formattedDate(data.list[23].dt),
             day3Temp: Math.round(data.list[23].main.temp),
-            day3TempC: hf.toCelsius(data.list[23].main.temp),
             day3TempMax: data.list[23].main.temp_max,
             day3TempMin: data.list[23].main.temp_min,
             day3Description: hf.toTitleCase(data.list[23].weather[0].description),
             day3Icon: hf.evalIcon(data.list[23].weather[0].icon).icon,
             day4: hf.formattedDate(data.list[31].dt),
             day4Temp: Math.round(data.list[31].main.temp),
-            day4TempC: hf.toCelsius(data.list[31].main.temp),
             day4TempMax: data.list[31].main.temp_max,
             day4TempMin: data.list[31].main.temp_min,
             day4Description: hf.toTitleCase(data.list[31].weather[0].description),
@@ -113,15 +106,15 @@ var Dashboard = React.createClass({
   render: function() {
     var s = this.state;
     var tempUnit = (s.metric ? 'Switch to Fahrenheit' : 'Switch to Celsius');
-    var currentTemp = (s.metric ? s.tempC : s.temp);
-    var currentMin = (s.metric ? s.minC : s.min);
-    var currentMax = (s.metric ? s.maxC : s.max);
+    var currentTemp = (s.metric ? hf.toFahrenheit(s.temp) : s.temp);
+    var currentMin = (s.metric ? hf.toFahrenheit(s.min) : s.min);
+    var currentMax = (s.metric ? hf.toFahrenheit(s.max) : s.max);
     var currentTempUnit = (s.metric ? '°C' : '°F');
-    var day1Temp = (s.metric ? s.day1TempC : s.day1Temp);
-    var day2Temp = (s.metric ? s.day2TempC : s.day2Temp);
-    var day3Temp = (s.metric ? s.day3TempC : s.day3Temp);
-    var day4Temp = (s.metric ? s.day4TempC : s.day4Temp);
-    var day5Temp = (s.metric ? s.day5TempC : s.day5Temp);
+    var day1Temp = (s.metric ? hf.toFahrenheit(s.day1Temp) : s.day1Temp);
+    var day2Temp = (s.metric ? hf.toFahrenheit(s.day2Temp) : s.day2Temp);
+    var day3Temp = (s.metric ? hf.toFahrenheit(s.day3Temp) : s.day3Temp);
+    var day4Temp = (s.metric ? hf.toFahrenheit(s.day4Temp) : s.day4Temp);
+    var day5Temp = (s.metric ? hf.toFahrenheit(s.day5Temp) : s.day5Temp);
     var imperialClass = classNames('btn btn-xs btn-success-outline', this.state.metric ? '' : 'active');
     var metricClass = classNames('btn btn-xs btn-success-outline', this.state.metric ? 'active' : '');
     var mapUrl = "//www.openstreetmap.org/export/embed.html?bbox="+s.minLon+"%2C"+s.minLat+"%2C"+s.maxLon+"%2C"+s.maxLat+"&amp;layer=mapnik"

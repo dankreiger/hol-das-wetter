@@ -6,6 +6,11 @@ var FutureWeather = React.createClass({
   render: function() {
     var p = this.props;
 
+
+    if(!(p.day1Temp && p.day2Temp && p.day3Temp && p.day4Temp)){
+      return <div className="lead">Loading ...</div>;
+    }
+
     return (
       <div className="card-group">
         <div className="card">

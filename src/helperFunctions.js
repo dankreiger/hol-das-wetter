@@ -36,7 +36,7 @@ function helperFunctions() {
     return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
   }
 
-  this.toCelsius = function(tempF) {
+  this.toFahrenheit = function(tempF) {
     return(Math.round((tempF - 32) * (5/9)));
   }
 

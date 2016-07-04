@@ -24,6 +24,7 @@ var CurrentWeather = React.createClass({
       marginTop: 15
     };
 
+
     return (
       <div>
         <div className="card text-xs-center" style={cardContainerStyle}>
