@@ -8,7 +8,6 @@ Instant shell script setup for a [React](http://facebook.github.io/react/) Weath
 ### Table of Contents
 *   [Prerequisites](#prerequisites)
 *   [Quickstart (Mac OS X)](#quickstart-for-mac-os-x-only)
-*   [Expectations](#expectations)
 
 * * *
 
