@@ -1,20 +1,31 @@
 ### Hol das Wetter!
 
-<a href="http://facebook.github.io/react/"><img src="http://javascriptismagic.github.io/aui/logos/react.png" /> </a><a href="http://www.openweathermap.org/api"><img  src="https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg" /> </a>
-<a href="http://github.com/github/fetch"><img  src="https://38.media.tumblr.com/avatar_42a712c20cf7_128.png" /></a>
+[![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch)
 
-Instant shell script setup for a <a href="http://facebook.github.io/react/">React</a> Weather App API using <a href="https://github.com/github/fetch">Fetch</a> and <a href="http://openweathermap.org/">Open Weather Map</a>.
+Instant shell script setup for a [React](http://facebook.github.io/react/) Weather App API using [Fetch](https://github.com/github/fetch) and [Open Weather Map](http://openweathermap.org/).
 
-- Please make sure <a href="https://nodejs.org/">NodeJS</a> is installed first.
+
+### Table of Contents
+*   [Prerequisites](#prerequisites)
+*   [Quickstart (Mac OS X)](#quickstart-for-mac-os-x-only)
+*   [Expectations](#expectations)
+
+* * *
+
+
+
+### Prerequisites
+
+- Please make sure [NodeJS](https://nodejs.org/) is installed first.
 
   - Check via the command line:
   ```bash
   $ node --version
   ```
 
-- Quickstart for Mac OS X only
+### Quickstart for Mac OS X only
 
-  - Clone this repository and run the setup script:
+1. Clone this repository and run the setup script:
   ```bash
   $ git clone https://github.com/dankreiger/hol-das-wetter.git
   $ cd hol-das-wetter/
@@ -23,24 +34,24 @@ Instant shell script setup for a <a href="http://facebook.github.io/react/">Reac
   $ ./auto_setup.sh
   ```
 
-  - Sign up for the <a href="http://openweathermap.org/api">Open Weather Map API</a> and enter your API key in <code>src/owmApiKey.js</code>
+2. Sign up for the [Open Weather Map API](http://openweathermap.org/api) and enter your API key in `src/owmApiKey.js`
   ```javascript
   // src/owmApiKey.js
+
   // replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key
   // make sure to leave it as a string
-
   module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
   ```   
 
-  - After making updates, shut down and restart the npm script:
+3. After making updates, shut down and restart the npm script:
   ```bash
   Ctrl+C
   $ npm start
   ```
 
-  - Open up a new terminal tab or window and start the http-server:
+4. Open up a new terminal tab or window and start the http-server:
   ```bash
   $ http-server
   ```
 
-Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
+5. Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
