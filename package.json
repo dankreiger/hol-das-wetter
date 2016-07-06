@@ -1,29 +1,33 @@
 {
   "name": "hol_das_wetter",
   "version": "1.0.0",
-  "description": "",
+  "description": "[![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch)",
   "main": "index.js",
   "scripts": {
-    "start": "watchify src/main.jsx -t [babelify --presets [ react ] ] -o public/js/main.js -v"
+    "start": "watchify src/main.jsx -t [babelify --presets [ react ] ] -o public/js/main.js -v",
+    "test": "npm run style && node test/*.test.js | faucet"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dankreiger/hol-das-wetter.git"
+    "url": "git+https://github.com/dankreiger/hol-das-wetter.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dankreiger/hol-das-wetter/issues"
   },
-  "homepage": "https://github.com/dankreiger/hol-das-wetter",
+  "homepage": "https://github.com/dankreiger/hol-das-wetter#readme",
   "dependencies": {
     "babel-preset-react": "^6.11.1",
     "babelify": "^7.3.0",
     "classnames": "^2.2.5",
     "country-data": "0.0.25",
-    "react": "^15.1.0",
-    "react-dom": "^15.1.0",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
     "watchify": "^3.7.0",
     "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
   }
 }

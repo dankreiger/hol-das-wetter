@@ -106,15 +106,15 @@ var Dashboard = React.createClass({
   render: function() {
     var s = this.state;
     var tempUnit = (s.metric ? 'Switch to Fahrenheit' : 'Switch to Celsius');
-    var currentTemp = (s.metric ? hf.toFahrenheit(s.temp) : s.temp);
-    var currentMin = (s.metric ? hf.toFahrenheit(s.min) : s.min);
-    var currentMax = (s.metric ? hf.toFahrenheit(s.max) : s.max);
+    var currentTemp = (s.metric ? s.temp : hf.toFahrenheit(s.temp));
+    var currentMin = (s.metric ? s.min : hf.toFahrenheit(s.min));
+    var currentMax = (s.metric ? s.max : hf.toFahrenheit(s.max));
     var currentTempUnit = (s.metric ? '°C' : '°F');
-    var day1Temp = (s.metric ? hf.toFahrenheit(s.day1Temp) : s.day1Temp);
-    var day2Temp = (s.metric ? hf.toFahrenheit(s.day2Temp) : s.day2Temp);
-    var day3Temp = (s.metric ? hf.toFahrenheit(s.day3Temp) : s.day3Temp);
-    var day4Temp = (s.metric ? hf.toFahrenheit(s.day4Temp) : s.day4Temp);
-    var day5Temp = (s.metric ? hf.toFahrenheit(s.day5Temp) : s.day5Temp);
+    var day1Temp = (s.metric ? s.day1Temp : hf.toFahrenheit(s.day1Temp));
+    var day2Temp = (s.metric ? s.day2Temp : hf.toFahrenheit(s.day2Temp));
+    var day3Temp = (s.metric ? s.day3Temp : hf.toFahrenheit(s.day3Temp));
+    var day4Temp = (s.metric ? s.day4Temp : hf.toFahrenheit(s.day4Temp));
+    var day5Temp = (s.metric ? s.day5Temp : hf.toFahrenheit(s.day5Temp));
     var imperialClass = classNames('btn btn-xs btn-success-outline', this.state.metric ? '' : 'active');
     var metricClass = classNames('btn btn-xs btn-success-outline', this.state.metric ? 'active' : '');
     var mapUrl = "//www.openstreetmap.org/export/embed.html?bbox="+s.minLon+"%2C"+s.minLat+"%2C"+s.maxLon+"%2C"+s.maxLat+"&amp;layer=mapnik"
