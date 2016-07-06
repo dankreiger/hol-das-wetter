@@ -34,7 +34,7 @@ touch ./public/js/main.js
 
 json -I -f package.json -e 'this.scripts={
     "start": "watchify src/main.jsx -t [babelify --presets [ react ] ] -o public/js/main.js -v",
-    "test": "npm run style && node test/*.test.js | faucet"
+    "test": "node test/*.test.js | faucet"
   }'
 
 npm start
