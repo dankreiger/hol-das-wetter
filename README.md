@@ -1,7 +1,10 @@
+
 Hol das Wetter!
 ==============
 
 [![Build Status](https://travis-ci.org/dankreiger/hol-das-wetter.svg?branch=master)](https://travis-ci.org/dankreiger/hol-das-wetter)
+
+![hol das wetter dev dependencies status](https://david-dm.org/dankreiger/hol-das-wetter.svg)
 
 [![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch)
 
