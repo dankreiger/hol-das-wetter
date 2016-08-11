@@ -33,8 +33,6 @@ Instant shell script setup for a [React](http://facebook.github.io/react/) Weath
   ```bash
   $ git clone https://github.com/dankreiger/hol-das-wetter.git
   $ cd hol-das-wetter/
-  $ chmod +x ./auto_setup.sh
-  $ chmod +x ./remove_defaults.sh
   $ ./auto_setup.sh
   ```
 
