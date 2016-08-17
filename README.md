@@ -29,11 +29,10 @@ Instant shell script setup for a [React](http://facebook.github.io/react/) Weath
 
 ### Quickstart for Mac OS X only
 
-1. Clone this repository and run the setup script:
+1. Clone this repository:
   ```bash
   $ git clone https://github.com/dankreiger/hol-das-wetter.git
   $ cd hol-das-wetter/
-  $ ./auto_setup.sh
   ```
 
 2. Sign up for the [Open Weather Map API](http://openweathermap.org/api) and enter your API key in `src/owmApiKey.js`
