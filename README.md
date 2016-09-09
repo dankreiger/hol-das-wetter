@@ -35,30 +35,32 @@ Hol das Wetter!
   $ cd hol-das-wetter/
   ```
 
-2. Sign up for the [Open Weather Map API](http://openweathermap.org/api) and enter your API key in `src/owmApiKey.js`
-  ```javascript
-  // src/owmApiKey.js
+2. Sign up for the [Open Weather Map API](http://openweathermap.org/api).
 
-  // replace 'YOUR_OPEN_WEATHER_MAP_API_KEY' with your API Key
-  // make sure to leave it as a string
-  module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
-  ```   
+3. Create `src/owmApiKey.js` and enter your API key in it as a string. Create the file from the command line:
+```bash
+$ touch src/owmApiKey.js
+```
+And export your API key in `src/owmApiKey.js` like this: 
+```javascript
+module.exports='YOUR_OPEN_WEATHER_MAP_API_KEY';
+```   
 
-3. After making updates, shut down and restart the npm script:
+4. Start the watchify script:
+```bash
+$ npm start
+```
+
+5. Open up a new terminal tab or window and start the http-server:
   ```bash
-  Ctrl+C
-  $ npm start
-  ```
-
-4. Open up a new terminal tab or window and start the http-server:
-  ```bash
+  $ npm install -g http-server  
   $ http-server
   ```
 
-5. Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
+6. Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
 
 
  [React](http://facebook.github.io/react/) Weather App using [Fetch](https://github.com/github/fetch) and [Open Weather Map](http://openweathermap.org/).
 
 
- [![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch) 
+ [![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch)
