@@ -5,9 +5,9 @@ Hol das Wetter!
 ![hol das wetter dev dependencies status](https://david-dm.org/dankreiger/hol-das-wetter.svg)
 
 
-[![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch)
 
-Instant shell script setup for a [React](http://facebook.github.io/react/) Weather App API using [Fetch](https://github.com/github/fetch) and [Open Weather Map](http://openweathermap.org/).
+![Alt text](https://monosnap.com/file/Lm1WJHLpK6UOtTwRBjUgT0KAlsjRiX.png)
+
 
 
 ### Table of Contents
@@ -57,6 +57,8 @@ Instant shell script setup for a [React](http://facebook.github.io/react/) Weath
 
 5. Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
 
-***
 
-![Alt text](https://monosnap.com/file/Lm1WJHLpK6UOtTwRBjUgT0KAlsjRiX.png)
+ [React](http://facebook.github.io/react/) Weather App using [Fetch](https://github.com/github/fetch) and [Open Weather Map](http://openweathermap.org/).
+
+
+ [![](http://javascriptismagic.github.io/aui/logos/react.png) ](http://facebook.github.io/react/)[![](https://pbs.twimg.com/profile_images/720298646630084608/wb7LSoAc_reasonably_small.jpg) ](http://www.openweathermap.org/api) [![](https://38.media.tumblr.com/avatar_42a712c20cf7_128.png)](http://github.com/github/fetch) 
