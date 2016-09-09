@@ -56,3 +56,7 @@ Instant shell script setup for a [React](http://facebook.github.io/react/) Weath
   ```
 
 5. Go to [localhost:8080](http://localhost:8080) or http://127.0.0.1:8080 in your browser. The weather widget should be up and ready to use.
+
+***
+
+![Alt text](https://monosnap.com/file/Lm1WJHLpK6UOtTwRBjUgT0KAlsjRiX.png)
